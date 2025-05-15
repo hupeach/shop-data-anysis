@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化系统 - 主页</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/china.js') }}"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/js/china.js"></script> -->
+</head>
+<body>
+    <div class="layout">
+        <header class="header">
+            <div class="header-left">
+                <span id="toggleSidebar" class="toggle-btn">☰</span>
+                <span class="logo">数据可视化系统</span>
+            </div>
+            <div class="user-info">
+                <span id="username-display"></span>
+                <button onclick="handleLogout()" class="logout-btn">退出登录</button>
+            </div>
+        </header>
+        <div class="main-container">
+            <aside class="sidebar" id="sidebar">
+                <nav class="nav-menu">
+                    <a href="#" class="nav-item active" onclick="switchChart('category_analysis')">产品综合分析</a>
+                    <a href="#" class="nav-item" onclick="switchChart('china_map')">销售省份分布</a>
+                    <a href="#" class="nav-item" onclick="switchChart('client_analysis')">客户分析</a>
+                    <a href="#" class="nav-item" onclick="switchChart('annual')">订单量及销售额分析</a>
+                    <a href="#" class="nav-item" onclick="switchChart('return_analysis')">利润及退货量分析</a>
+                    <a href="#" class="nav-item" onclick="switchChart('monthly_sales')">月度销售趋势分析</a>
+                    <a href="#" class="nav-item" onclick="switchChart('product_analysis')">热销产品分析</a>
+                    <a href="#" class="nav-item" onclick="switchChart('return_by_category')">退货商品分析</a>
+                    <a href="#" class="nav-item" onclick="switchChart('discount_bar_analysis')">商品折扣分析</a>
+                </nav>
+            </aside>
+            <main class="content">
+                <div id="chartContainer"></div>
+            </main>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

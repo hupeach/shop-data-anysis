@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 属性文件:在properties文件中找到对应的配置项 -->
+    <property name="logging.path" value="logs"/>
+    <!-- 输出格式 -->
+    <property name="out.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] [%c][%L] - %m%n"/>
+
+
+    <conversionRule conversionWord="cl" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <!-- 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!---->
+        <withJansi>false</withJansi>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss}|%thread|%-5level|%logger{80}|%method|%line - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
